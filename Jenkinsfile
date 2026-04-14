@@ -1,50 +1,51 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven3'
+        jdk 'JDK17'
+    }
+
     stages {
+
         stage('Checkout') {
             steps {
-                checkout scm
+                git branch: 'main', url: 'https://github.com/ouassimcbkl/projet_jenkins.git'
             }
         }
 
-        stage('Build + Tests + Coverage') {
+        stage('Build') {
             steps {
-                sh 'mvn clean verify -B'
+                bat 'mvn clean compile -B'
+            }
+        }
+
+        stage('Tests unitaires') {
+            steps {
+                bat 'mvn test -B'
             }
             post {
                 always {
                     junit '**/target/surefire-reports/*.xml'
-                    junit '**/target/failsafe-reports/*.xml'
-                    archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
                 }
             }
         }
 
-        stage('Qualite statique') {
+        stage('Tests intégration') {
             steps {
-                sh 'mvn checkstyle:checkstyle pmd:pmd pmd:cpd spotbugs:spotbugs -B'
+                bat 'mvn verify -Dsurefire.skip=true -B'
             }
             post {
                 always {
-                    archiveArtifacts artifacts: 'target/checkstyle-result.xml, target/pmd.xml, target/cpd.xml, target/spotbugsXml.xml', allowEmptyArchive: true
+                    junit '**/target/failsafe-reports/*.xml'
                 }
             }
         }
-    }
 
-    post {
-        failure {
-            emailext(
-                subject: "Build FAILED - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: """Le build a échoué.
-
-Projet : ${env.JOB_NAME}
-Build : #${env.BUILD_NUMBER}
-URL : ${env.BUILD_URL}
-""",
-                to: "dydoudubg@gmail.com"
-            )
+        stage('Qualité') {
+            steps {
+                bat 'mvn checkstyle:checkstyle pmd:pmd pmd:cpd spotbugs:spotbugs'
+            }
         }
     }
 }
