@@ -114,3 +114,4 @@ Warnings NG – SpotBugs       : **/spotbugsXml.xml
 
 
 Test pipeline multibranche
+ test 

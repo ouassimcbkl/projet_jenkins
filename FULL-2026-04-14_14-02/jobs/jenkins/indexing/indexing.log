@@ -1,0 +1,29 @@
+Démarré par l'utilisateur [8mha:////4C7s2S/gYj7mJax0EOObvcBQ2eI+H5ftIdD3nyP52CuAAAAAmR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzREgZe/dLi1CL9/NLE4uLMXADj96NCwgAAAA==[0mcheikh boukal ouassim
+[mar. avr. 14 13:22:13 WAT 2026] Starting branch indexing...
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.53.0.windows.1'
+ > git.exe ls-remote --symref -- https://github.com/ouassimcbkl/projet_jenkins.git # timeout=10
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\caches\git-6f97c88579dbeec7de0336019038e1fe\.git # timeout=10
+Setting origin to https://github.com/ouassimcbkl/projet_jenkins.git
+ > git.exe config remote.origin.url https://github.com/ouassimcbkl/projet_jenkins.git # timeout=10
+Fetching & pruning origin...
+Listing remote references...
+ > git.exe config --get remote.origin.url # timeout=10
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.53.0.windows.1'
+ > git.exe ls-remote -h -- https://github.com/ouassimcbkl/projet_jenkins.git # timeout=10
+Fetching upstream changes from origin
+ > git.exe config --get remote.origin.url # timeout=10
+ > git.exe fetch --no-tags --force --progress --prune -- origin +refs/heads/*:refs/remotes/origin/* # timeout=10
+Checking branches...
+  Checking branch jenkins
+      ‘Jenkinsfile’ found
+    Met criteria
+Scheduled build for branch: jenkins
+  Checking branch main
+      ‘Jenkinsfile’ found
+    Met criteria
+No changes detected: main (still at 3b1d132a958d1f563949d88df97425d6a79bfd7c)
+Processed 2 branches
+[mar. avr. 14 13:22:17 WAT 2026] Finished branch indexing. Indexing took 3,6 s
+Finished: SUCCESS

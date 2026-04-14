@@ -1,0 +1,10 @@
+commit 3b1d132a958d1f563949d88df97425d6a79bfd7c
+tree 4838541f9a9c9b87063b32043016569d12c659e8
+parent bbe0fba62f48e8b33405f0fcfb41aeaf07cb4013
+author ouassimcbkl <ouassim16cbkl@gmail.com> 2026-04-14 12:48:34 +0100
+committer ouassimcbkl <ouassim16cbkl@gmail.com> 2026-04-14 12:48:34 +0100
+
+    fix checkstyle error
+
+
+:100644 100644 68dcf0cb235099ae93513901a2947bcd2a58f9c2 c2fc1e64560822d3f76063755d4831d1733ca49f M	checkstyle.xml
